@@ -11,13 +11,14 @@
 
 #ifdef AUDIO_I2S_METHOD_SIMPLEX
 
-#define AUDIO_I2S_MIC_GPIO_WS   GPIO_NUM_25
-#define AUDIO_I2S_MIC_GPIO_SCK  GPIO_NUM_26
-#define AUDIO_I2S_MIC_GPIO_DIN  GPIO_NUM_32
+// Custom Breadboard Left-Side Audio Pins
+#define AUDIO_I2S_MIC_GPIO_WS   GPIO_NUM_18
+#define AUDIO_I2S_MIC_GPIO_SCK  GPIO_NUM_19
+#define AUDIO_I2S_MIC_GPIO_DIN  GPIO_NUM_21
 
-#define AUDIO_I2S_SPK_GPIO_DOUT GPIO_NUM_33
-#define AUDIO_I2S_SPK_GPIO_BCLK GPIO_NUM_14
-#define AUDIO_I2S_SPK_GPIO_LRCK GPIO_NUM_27
+#define AUDIO_I2S_SPK_GPIO_DOUT GPIO_NUM_22
+#define AUDIO_I2S_SPK_GPIO_BCLK GPIO_NUM_5
+#define AUDIO_I2S_SPK_GPIO_LRCK GPIO_NUM_4
 
 #else
 
@@ -29,14 +30,16 @@
 #endif
 
 #define BOOT_BUTTON_GPIO        GPIO_NUM_0
-#define TOUCH_BUTTON_GPIO       GPIO_NUM_5
-#define ASR_BUTTON_GPIO         GPIO_NUM_19
+// Reassigned to avoid conflicts with audio pins
+#define TOUCH_BUTTON_GPIO       GPIO_NUM_32 
+#define ASR_BUTTON_GPIO         GPIO_NUM_33 
 #define BUILTIN_LED_GPIO        GPIO_NUM_2
 
 #define ML307_RX_PIN            GPIO_NUM_16
 #define ML307_TX_PIN            GPIO_NUM_17
 
-#define DISPLAY_SDA_PIN GPIO_NUM_4
+// Display SDA reassigned from 4 to avoid Speaker LRC conflict
+#define DISPLAY_SDA_PIN GPIO_NUM_25 
 #define DISPLAY_SCL_PIN GPIO_NUM_15
 #define DISPLAY_WIDTH   128
 
@@ -51,8 +54,7 @@
 #define DISPLAY_MIRROR_X true
 #define DISPLAY_MIRROR_Y true
 
-
-// A MCP Test: Control a lamp
-#define LAMP_GPIO GPIO_NUM_18
+// Lamp reassigned from 18 to avoid Mic WS conflict
+#define LAMP_GPIO GPIO_NUM_26 
 
 #endif // _BOARD_CONFIG_H_
